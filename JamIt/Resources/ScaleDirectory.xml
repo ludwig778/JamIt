@@ -1,0 +1,43 @@
+<Directory>
+	<Type Name="Scale">
+		<Mode Name="Major" value="101011010101"/>
+		<Mode Name="Minor natural" value="101101011010"/>
+		<Mode Name="Minor harmonic" value="101101011001"/>
+		<Mode Name="Minor melodic" value="101101010101"/>
+		<Mode Name="Major pentatonic" value="101010010100"/>
+		<Mode Name="Minor pentatonic" value="100101010010"/>
+		<Mode Name="Blues" value="100101110010"/>
+	</Type>
+	<Type Name="Arpeggios">
+		<Mode Name="Minor 7 tetrachord" value="100100010010"/>
+		<Mode Name="Major 7 tetrachord" value="100010010001"/>
+		<Mode Name="7 tetrachord" value="100010010010"/>
+		<Mode Name="m75b tetrachord" value="100100100010"/>
+		<Mode Name="75b tetrachord" value="100010100010"/>
+		<Mode Name="75# tetrachord" value="100010001010"/>
+		<Mode Name="min7maj tetrachord" value="100100010001"/>
+		<Mode Name="69 tetrachord" value="101010000100"/>
+		<Mode Name="m69 tetrachord" value="101100000100"/>
+		<Mode Name="7sus2 tetrachord" value="101000010010"/>
+		<Mode Name="7sus4 tetrachord" value="100001010010"/>
+		<Mode Name="1-2-3-5 tetrachord" value="101010010000"/>
+		<Mode Name="1-2-3m-7 tetrachord" value="101100000010"/>
+		<Mode Name="Bhavani tetrachord" value="101001000100"/>
+		<Mode Name="Haripriya" value="101001001000"/>
+	</Type>
+	<Type Name="Triad">
+		<Mode Name="Peruvian Tritonic M6" value="100100000100"/>
+		<Mode Name="Ongkari" value="100000110000"/>
+		<Mode Name="Sansagari" value="100001000010"/>
+		<Mode Name="Ute Tritonic" value="100100000010"/>
+		<Mode Name="Major triad" value="100010010000"/>
+		<Mode Name="Minor triad" value="100100010000"/>
+		<Mode Name="Diminished triad" value="100100100000"/>
+		<Mode Name="Augmented triad" value="100010001000"/>
+		<Mode Name="sus2 triad" value="101000010000"/>
+		<Mode Name="sus4 triad" value="100001010000"/>
+		<Mode Name="Major 6 triad" value="100010000100"/>
+		<Mode Name="Minor 6 triad" value="100100000100"/>
+		<Mode Name="Four semitone triad" value="100010001000"/>
+	</Type>
+</Directory>

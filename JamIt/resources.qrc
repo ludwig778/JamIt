@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Pictures">
+        <file>Resources/maple.png</file>
+    </qresource>
+    <qresource prefix="/XML">
+        <file>Resources/ScaleDirectory.xml</file>
+    </qresource>
+</RCC>

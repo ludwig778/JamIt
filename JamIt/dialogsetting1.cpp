@@ -12,13 +12,11 @@ DialogSetting1::DialogSetting1(QWidget *parent) :
     spinBox->setValue(6);
 
     spinBox2 = new QSpinBox();
-    spinBox2->setMinimum(5);
-    spinBox2->setMaximum(24);
+    spinBox2->setRange(5, 24);
     spinBox2->setValue(12);
     fretNumber = new QLabel(tr("Fret number :"));
     hBoxLayout2->addWidget(fretNumber);
     hBoxLayout2->addWidget(spinBox2);
-
 
     okButton = new QPushButton(tr("Ok"));
     denyButton = new QPushButton(tr("Annuler"));
@@ -52,7 +50,6 @@ DialogSetting1::DialogSetting1(QWidget *parent) :
         gridLayout->addWidget(combo,i,1);
     }
 
-
     vBoxLayout->addLayout(gridLayout);
     vBoxLayout->addStretch(255);
     vBoxLayout->addSpacing(10);
@@ -62,12 +59,12 @@ DialogSetting1::DialogSetting1(QWidget *parent) :
 
     setLayout(vBoxLayout);
 
-
     connect(okButton,SIGNAL(pressed()),this,SLOT(updateTuningSetting()));
     connect(okButton,SIGNAL(pressed()),this,SLOT(close()));
     connect(denyButton,SIGNAL(pressed()),this,SLOT(close()));
     connect(this->spinBox,SIGNAL(valueChanged(QString)),this,SLOT(updateStringSetting()));
     updateStringSetting();
+
     setFixedHeight(370);
 }
 

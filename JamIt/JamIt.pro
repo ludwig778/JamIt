@@ -17,7 +17,8 @@ SOURCES += \
     pianographicview.cpp \
     widget.cpp \
     xml_dom.cpp \
-    dialogsetting2.cpp
+    dialogsetting2.cpp \
+    scaleselectorwidget.cpp
 
 HEADERS += \
     dialogsetting1.h \
@@ -26,7 +27,8 @@ HEADERS += \
     pianographicview.h \
     widget.h \
     xml_dom.h \
-    dialogsetting2.h
+    dialogsetting2.h \
+    scaleselectorwidget.h
 
 RESOURCES += \
     resources.qrc

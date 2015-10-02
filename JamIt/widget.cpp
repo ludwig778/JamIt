@@ -5,28 +5,28 @@
 Widget::Widget(QWidget *parent) :
     QWidget(parent)
 {
-    // Cr�ation des labels
+    // Création des labels
     labelScale = new QLabel("Scale");
     labelPitch = new QLabel("Pitch");
 
-    // Cr�ation des listeviews des gammes, et notes
+    // Création des listeviews des gammes, et notes
     viewScale = new QTreeWidget();
     viewPitch = new QListWidget();
     //viewPitch->setResizeMode(QListView::Adjust);
 
-    // Cr�ation de la widget list
+    // Création de la widget list
     //viewSelectList = new QListWidget();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    // Cr�ation du QPushButton
+    // Création du QPushButton
     setScale = new QPushButton(tr("Actualiser"));
     //setScale->setFixedHeight(50);
 
-    // Cr�ation des VBOX contenant les labels et les listeviews
+    // Création des VBOX contenant les labels et les listeviews
     vBoxScale = new QVBoxLayout();
     vBoxPitch = new QVBoxLayout();
 
-    // Cr�ation de l'HBOX contenant les VBOX listeviews + labels
+    // Création de l'HBOX contenant les VBOX listeviews + labels
     hBoxListView = new QHBoxLayout();
 
     // Gestion des layouts
@@ -39,7 +39,7 @@ Widget::Widget(QWidget *parent) :
     hBoxListView->addLayout(vBoxPitch);
     hBoxListView->addWidget(setScale);
 
-    // Cr�ation du VBox contenant tout le layout
+    // Création du VBox contenant tout le layout
     vBoxLayout = new QVBoxLayout(this);
 
     // GuitarGraphicLayouy Creation
@@ -48,10 +48,14 @@ Widget::Widget(QWidget *parent) :
     // PianoGraphicLayouy Creation
     pianoView = new PianoGraphicView();
 
+    // ScaleSelector Creation
+    scaleSelector = new ScaleSelectorWidget();
+
     // Ajout au VBoxLayout
     vBoxLayout->addLayout(hBoxListView);
     vBoxLayout->addWidget(guitarView);
     vBoxLayout->addWidget(pianoView);
+    vBoxLayout->addWidget(scaleSelector);
     //vBoxLayout->addWidget(viewSelectList);
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

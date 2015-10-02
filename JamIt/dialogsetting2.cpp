@@ -6,8 +6,7 @@ DialogSetting2::DialogSetting2(QWidget *parent) :
     vBoxLayout = new QVBoxLayout();
     hBoxLayout = new QHBoxLayout();
     spinBox = new QSpinBox();
-    spinBox->setMinimum(1);
-    spinBox->setMaximum(5);
+    spinBox->setRange(1, 5);
     spinBox->setValue(2);
     okButton = new QPushButton(tr("Ok"));
     denyButton = new QPushButton(tr("Annuler"));
@@ -22,7 +21,6 @@ DialogSetting2::DialogSetting2(QWidget *parent) :
     vBoxLayout->addLayout(hBoxLayout);
 
     setLayout(vBoxLayout);
-
 
     connect(okButton,SIGNAL(pressed()),this,SLOT(close()));
     connect(denyButton,SIGNAL(pressed()),this,SLOT(close()));

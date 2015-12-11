@@ -2,9 +2,11 @@
 
 ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 {
-    setFixedHeight(180);
+    setFixedHeight(120);
     listWidget = new QListWidget();
     listWidget->addItem("Item " + QString::number(1));
+    listWidget->addItem("Item " + QString::number(2));
+    listWidget->addItem("Item " + QString::number(3));
 
     addButton = new QPushButton(tr("Add"));
     leftSlideButton = new QPushButton(tr("<<"));
@@ -13,13 +15,18 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
     globalVBox = new QVBoxLayout();
     globalHBox = new QHBoxLayout();
+    globalVBox->setMargin(0);
+    globalHBox->setMargin(0);
 
     globalVBox->addWidget(addButton);
     globalVBox->addWidget(leftSlideButton);
     globalVBox->addWidget(rightSlideButton);
     globalVBox->addWidget(removeButton);
 
-    setLayout(globalVBox);
+    globalHBox->addWidget(listWidget);
+    globalHBox->addLayout(globalVBox);
+
+    setLayout(globalHBox);
 
 }
 

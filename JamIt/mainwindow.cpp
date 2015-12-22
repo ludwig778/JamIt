@@ -13,13 +13,13 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent)
 
     connect(set2.okButton,SIGNAL(pressed()),this,SLOT(sendData7()));
     connect(this, SIGNAL(redirectData7(int)),widget->pianoView,SLOT(updateOctaveCount(int)));
+    connect(set.okButton,SIGNAL(pressed()),this,SLOT(sendData10()));
+    connect(this, SIGNAL(redirectData10(int)),widget->guitarView,SLOT(updateFretNumber(int)));
 
     connect(set.okButton,SIGNAL(pressed()),this,SLOT(sendData1()));
     connect(this, SIGNAL(redirectData1(int)),widget->guitarView,SLOT(updateNbString(int)));
     connect(set.okButton,SIGNAL(pressed()),this,SLOT(sendData2()));
     connect(this, SIGNAL(redirectData2(QList<int>)),widget->guitarView,SLOT(updateTuning(QList<int>)));
-    connect(set.okButton,SIGNAL(pressed()),this,SLOT(sendData10()));
-    connect(this, SIGNAL(redirectData10(int)),widget->guitarView,SLOT(updateFretNumber(int)));
 
     // MOVED FROM THIS TO WIDGET CONSTRUCTOR
     /*connect(widget->setScale,SIGNAL(pressed()),this,SLOT(sendData3()));

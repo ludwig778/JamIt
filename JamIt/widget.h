@@ -53,6 +53,8 @@ signals:
     void redirectData5(QString scalePattern);
     void redirectData6(QString scalePattern);
 
+    void redirectData7(QString scalePattern);
+
 public slots:
     void testqdebud();
     void setGuitarView(bool view);
@@ -63,6 +65,8 @@ public slots:
 
     void sendData5(){emit redirectData5(viewScale->currentItem()->text(1));}
     void sendData6(){emit redirectData6(viewScale->currentItem()->text(1));}
+
+    void sendData7(){emit redirectData7(viewPitch->currentRow(),);}
 
 };
 

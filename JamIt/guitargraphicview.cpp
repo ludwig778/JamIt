@@ -159,7 +159,7 @@ void GuitarGraphicView::updateDoubleClickScale(QTreeWidgetItem* scale,int row)
             gamme << scale->text(1).at(i).digitValue();
         }
         repaint();
-        qDebug() << "test piano :" << scale << "row" << row;
+        qDebug() << "guitar piano :" << scale << "row" << row;
 
     }
 }

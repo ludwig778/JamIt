@@ -21,7 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent)
     connect(set.okButton,SIGNAL(pressed()),this,SLOT(sendData10()));
     connect(this, SIGNAL(redirectData10(int)),widget->guitarView,SLOT(updateFretNumber(int)));
 
-    connect(widget->setScale,SIGNAL(pressed()),this,SLOT(sendData3()));
+    // MOVED FROM THIS TO WIDGET CONSTRUCTOR
+    /*connect(widget->setScale,SIGNAL(pressed()),this,SLOT(sendData3()));
     connect(this, SIGNAL(redirectData3(int)),widget->guitarView,SLOT(updateScalePitch(int)));
     connect(widget->setScale,SIGNAL(pressed()),this,SLOT(sendData4()));
     connect(this, SIGNAL(redirectData4(int)),widget->pianoView,SLOT(updateScalePitch(int)));
@@ -39,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent)
 
     connect(widget->viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),widget->guitarView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
     connect(widget->viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),widget->pianoView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
+    */
 
     // Double clicked
     //connect(widget->viewScale,SIGNAL(doubleClicked(QModelIndex))

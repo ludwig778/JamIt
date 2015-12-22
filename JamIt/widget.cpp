@@ -87,6 +87,34 @@ Widget::Widget(QWidget *parent) :
     viewScale->setColumnCount(1);
     viewScale->headerItem()->setHidden(true);
     //viewScale->setFixedSize(250,150);
+
+
+    // SELECTORSCALEWIDGET SIGNALS
+    connect(scaleSelector->addButton,SIGNAL(pressed()),this,SLOT(sendData7()));
+    connect(this, SIGNAL(redirectData),scaleSelector,SLOT);
+    //connect(scaleSelector->leftSlideButton,SIGNAL(pressed()),,);
+    //connect(scaleSelector->rightSlideButton,SIGNAL(pressed()),,);
+    //connect(scaleSelector->removeButton,SIGNAL(pressed()),,);
+
+    //connect(scaleSelector->listWidget,SLOT
+
+    // FROM MAINWINDOW TO WIDGET
+    connect(setScale,SIGNAL(pressed()),this,SLOT(testqdebud()));
+
+    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData3()));
+    connect(this, SIGNAL(redirectData3(int)),guitarView,SLOT(updateScalePitch(int)));
+    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData4()));
+    connect(this, SIGNAL(redirectData4(int)),pianoView,SLOT(updateScalePitch(int)));
+
+    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData5()));
+    connect(this, SIGNAL(redirectData5(QString)),guitarView,SLOT(updateScale(QString)));
+    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData6()));
+    connect(this, SIGNAL(redirectData6(QString)),pianoView,SLOT(updateScale(QString)));
+
+    connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),guitarView,SLOT(updateDoubleClickPitch(QModelIndex)));
+    connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),pianoView,SLOT(updateDoubleClickPitch(QModelIndex)));
+    connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),guitarView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
+    connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),pianoView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
 }
 
 void Widget::loadingScale()

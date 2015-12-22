@@ -2,7 +2,7 @@
 
 ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 {
-    setFixedHeight(120);
+    setFixedHeight(100);
     listWidget = new QListWidget();
     listWidget->addItem("Item " + QString::number(1));
     listWidget->addItem("Item " + QString::number(2));

@@ -95,10 +95,25 @@ void PianoGraphicView::paintEvent(QPaintEvent *event)
     p.end();
 }
 
-void PianoGraphicView::updateScalePitch(int pitch)
+/*void PianoGraphicView::updateScalePitch(int pitch)
 {
     this->pitch = pitch;
     repaint();
+}*/
+
+void PianoGraphicView::updateScale(QString scalePattern, int pitch)
+{
+    this->pitch = pitch;
+    if(scalePattern != "")
+    {
+        gamme.clear();
+        for(int i = 0 ; i < 12; i++)
+        {
+            gamme << (scalePattern.at(i)).digitValue();
+        }
+        repaint();
+        qDebug() << scalePattern << "test";
+    }
 }
 
 void PianoGraphicView::updateDoubleClickPitch(QModelIndex pitch)
@@ -119,20 +134,6 @@ void PianoGraphicView::updateDoubleClickScale(QTreeWidgetItem* scale,int row)
         repaint();
         qDebug() << "test piano :" << scale << "row" << row;
 
-    }
-}
-
-void PianoGraphicView::updateScale(QString scalePattern)
-{
-    if(scalePattern != "")
-    {
-        gamme.clear();
-        for(int i = 0 ; i < 12; i++)
-        {
-            gamme << (scalePattern.at(i)).digitValue();
-        }
-        repaint();
-        qDebug() << scalePattern << "test";
     }
 }
 

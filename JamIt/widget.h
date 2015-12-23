@@ -47,26 +47,21 @@ public:
     QTreeWidgetItem *itm2;
 
 signals:
-    void redirectData3(int pitch);
-    void redirectData4(int pitch);
+    //void redirectData3(int pitch);
+    //void redirectData4(int pitch);
 
-    void redirectData5(QString scalePattern);
-    void redirectData6(QString scalePattern);
+    void redirectData5(QString scalePattern, int pitch);
 
-    void redirectData7(QString scalePattern);
+    void redirectData7(QString string, int pitch);
 
 public slots:
     void testqdebud();
     void setGuitarView(bool view);
     void setPianoView(bool view);
 
-    void sendData3(){emit redirectData3(viewPitch->currentRow());}
-    void sendData4(){emit redirectData4(viewPitch->currentRow());}
+    void sendData5(){emit redirectData5(viewScale->currentItem()->text(1),viewPitch->currentRow());}
 
-    void sendData5(){emit redirectData5(viewScale->currentItem()->text(1));}
-    void sendData6(){emit redirectData6(viewScale->currentItem()->text(1));}
-
-    void sendData7(){emit redirectData7(viewPitch->currentRow(),);}
+    void sendData7(){emit redirectData7(viewScale->currentItem()->text(1),viewPitch->currentRow());}
 
 };
 

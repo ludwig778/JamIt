@@ -30,3 +30,8 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
 }
 
+void ScaleSelectorWidget::addToSelector(QString string, int pitch)
+{
+    listWidget->addItem("Item " + string + pitch);
+}
+

@@ -20,6 +20,8 @@ public:
     QPushButton *removeButton;
     QVBoxLayout* globalVBox;
     QHBoxLayout* globalHBox;
+public slots:
+    void addToSelector(QString string, int pitch);
 };
 
 #endif // SCALESELECTORWIDGET_H

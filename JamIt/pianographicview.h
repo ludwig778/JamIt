@@ -24,10 +24,10 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 public slots:
-    void updateScalePitch(int pitch);
+    //void updateScalePitch(int pitch);
     void updateDoubleClickPitch(QModelIndex pitch);
     void updateDoubleClickScale(QTreeWidgetItem* scale,int row);
-    void updateScale(QString scalePattern);
+    void updateScale(QString scalePattern, int pitch);
     void updateOctaveCount(int octave);
 
 };

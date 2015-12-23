@@ -91,7 +91,7 @@ Widget::Widget(QWidget *parent) :
 
     // SELECTORSCALEWIDGET SIGNALS
     connect(scaleSelector->addButton,SIGNAL(pressed()),this,SLOT(sendData7()));
-    connect(this, SIGNAL(redirectData),scaleSelector,SLOT);
+    connect(this, SIGNAL(redirectData7(QString,int)),scaleSelector,SLOT(addToSelector(QString,int)));
     //connect(scaleSelector->leftSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->rightSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->removeButton,SIGNAL(pressed()),,);
@@ -101,15 +101,9 @@ Widget::Widget(QWidget *parent) :
     // FROM MAINWINDOW TO WIDGET
     connect(setScale,SIGNAL(pressed()),this,SLOT(testqdebud()));
 
-    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData3()));
-    connect(this, SIGNAL(redirectData3(int)),guitarView,SLOT(updateScalePitch(int)));
-    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData4()));
-    connect(this, SIGNAL(redirectData4(int)),pianoView,SLOT(updateScalePitch(int)));
-
     connect(setScale,SIGNAL(pressed()),this,SLOT(sendData5()));
-    connect(this, SIGNAL(redirectData5(QString)),guitarView,SLOT(updateScale(QString)));
-    connect(setScale,SIGNAL(pressed()),this,SLOT(sendData6()));
-    connect(this, SIGNAL(redirectData6(QString)),pianoView,SLOT(updateScale(QString)));
+    connect(this, SIGNAL(redirectData5(QString,int)),guitarView,SLOT(updateScale(QString,int)));
+    connect(this, SIGNAL(redirectData5(QString,int)),pianoView,SLOT(updateScale(QString,int)));
 
     connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),guitarView,SLOT(updateDoubleClickPitch(QModelIndex)));
     connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),pianoView,SLOT(updateDoubleClickPitch(QModelIndex)));

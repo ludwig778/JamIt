@@ -137,10 +137,24 @@ void GuitarGraphicView::updateTuning(QList<int> tuningSended)
     tuning.append(tuningSended);
 }
 
-void GuitarGraphicView::updateScalePitch(int pitch)
+/*void GuitarGraphicView::updateScalePitch()
+{
+    repaint();
+}*/
+
+void GuitarGraphicView::updateScale(QString scalePattern, int pitch)
 {
     this->pitch = pitch;
-    repaint();
+    if(scalePattern != "")
+    {
+        gamme.clear();
+        for(int i = 0 ; i < 12; i++)
+        {
+            gamme << (scalePattern.at(i)).digitValue();
+        }
+        repaint();
+        qDebug() << scalePattern << "test";
+    }
 }
 
 void GuitarGraphicView::updateDoubleClickPitch(QModelIndex pitch)
@@ -161,20 +175,6 @@ void GuitarGraphicView::updateDoubleClickScale(QTreeWidgetItem* scale,int row)
         repaint();
         qDebug() << "guitar piano :" << scale << "row" << row;
 
-    }
-}
-
-void GuitarGraphicView::updateScale(QString scalePattern)
-{
-    if(scalePattern != "")
-    {
-        gamme.clear();
-        for(int i = 0 ; i < 12; i++)
-        {
-            gamme << (scalePattern.at(i)).digitValue();
-        }
-        repaint();
-        qDebug() << scalePattern << "test";
     }
 }
 

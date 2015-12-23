@@ -51,7 +51,6 @@ signals:
     //void redirectData4(int pitch);
 
     void redirectData5(QString scalePattern, int pitch);
-
     void redirectData7(QString string, int pitch);
 
 public slots:

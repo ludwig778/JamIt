@@ -5,7 +5,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent)
 {
     widget = new Widget(this);
     setCentralWidget(widget);
-    setMaximumSize(800,800);
 
     createActions();
     createMenus();

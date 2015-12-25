@@ -25,8 +25,6 @@ protected:
 
 public slots:
     //void updateScalePitch(int pitch);
-    void updateDoubleClickPitch(QModelIndex pitch);
-    void updateDoubleClickScale(QTreeWidgetItem* scale,int row);
     void updateScale(QString scalePattern, int pitch);
     void updateOctaveCount(int octave);
 

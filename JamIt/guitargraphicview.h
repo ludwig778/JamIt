@@ -38,8 +38,6 @@ public slots:
     void updateNbString(int nb);
     void updateTuning(QList<int> tuningSended);
     //void updateScalePitch(int pitch);
-    void updateDoubleClickPitch(QModelIndex pitch);
-    void updateDoubleClickScale(QTreeWidgetItem* scale,int row);
     void updateScale(QString scalePattern, int pitch);
     void updateFretNumber(int fret);
 

@@ -1,0 +1,43 @@
+{
+  "Scale":  {
+    "Major" :"101011010101",
+    "Minor natural" :"101101011010",
+    "Minor harmonic" :"101101011001",
+    "Minor melodic" :"101101010101",
+    "Major pentatonic" :"101010010100",
+    "Minor pentatonic" :"100101010010",
+    "Blues" :"100101110010"
+  },
+  "Arpeggios": {
+    "Minor 7 tetrachord" :"100100010010",
+    "Major 7 tetrachord" :"100010010001",
+    "7 tetrachord" :"100010010010",
+    "m75b tetrachord" :"100100100010",
+    "75b tetrachord" :"100010100010",
+    "75# tetrachord" :"100010001010",
+    "min7maj tetrachord" :"100100010001",
+    "69 tetrachord" :"101010000100",
+    "m69 tetrachord" :"101100000100",
+    "7sus2 tetrachord" :"101000010010",
+    "7sus4 tetrachord" :"100001010010",
+    "1-2-3-5 tetrachord" :"101010010000",
+    "1-2-3m-7 tetrachord" :"101100000010",
+    "Bhavani tetrachord" :"101001000100",
+    "Haripriya" :"101001001000"
+  },
+  "Triad": {
+    "Peruvian Tritonic M6" :"100100000100",
+    "Ongkari" :"100000110000",
+    "Sansagari" :"100001000010",
+    "Ute Tritonic" :"100100000010",
+    "Major triad" :"100010010000",
+    "Minor triad" :"100100010000",
+    "Diminished triad" :"100100100000",
+    "Augmented triad" :"100010001000",
+    "sus2 triad" :"101000010000",
+    "sus4 triad" :"100001010000",
+    "Major 6 triad" :"100010000100",
+    "Minor 6 triad" :"100100000100",
+    "Four semitone triad" :"100010001000"
+  }
+}

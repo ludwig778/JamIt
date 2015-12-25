@@ -18,6 +18,7 @@
 #include <QDomDocument>
 #include <QtCore>
 #include <notes.h>
+#include <scaledictionary.h>
 
 class Widget : public QWidget
 {
@@ -43,6 +44,7 @@ public:
     QHBoxLayout *hBoxListView;
     QVBoxLayout *vBoxLayout;
     QList<int> tuning;
+    ScaleDictionary* dict;
 
     QTreeWidgetItem *itm;
     QTreeWidgetItem *itm2;
@@ -56,15 +58,27 @@ signals:
 
     void redirectData5(QString scalePattern, int pitch);
     void redirectData7(QString string, int pitch);
+    void redirectData8(QTreeWidgetItem* item,int pitch);
 
 public slots:
     void testqdebud();
     void setGuitarView(bool view);
     void setPianoView(bool view);
 
-    void sendData5(){emit redirectData5(viewScale->currentItem()->text(1),viewPitch->currentRow());}
+    void sendData1(QModelIndex){emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());}
+    void sendData2(QTreeWidgetItem* item,int)
+    {
+        if(item->parent())
+        {
+            emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());
+        }
+    }
 
-    void sendData7(){emit redirectData7(viewScale->currentItem()->text(1),viewPitch->currentRow());}
+    void sendData5(){emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());}
+
+    void sendData7(){emit redirectData7(viewScale->currentItem()->text(0),viewPitch->currentRow());}
+
+    //void sendData8(){emit redirectData8(viewScale->currentItem()->text(0),viewPitch->currentRow());}
 
 };
 

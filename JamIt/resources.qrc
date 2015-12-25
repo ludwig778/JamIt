@@ -5,4 +5,7 @@
     <qresource prefix="/XML">
         <file>Resources/ScaleDirectory.xml</file>
     </qresource>
+    <qresource prefix="/JSON">
+        <file>Resources/ScaleDirectory.json</file>
+    </qresource>
 </RCC>

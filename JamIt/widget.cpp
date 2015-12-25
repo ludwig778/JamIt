@@ -5,6 +5,7 @@
 Widget::Widget(QWidget *parent) :
     QWidget(parent)
 {
+    setFixedHeight(620);
     // Création des labels
     labelScale = new QLabel("Scale");
     labelPitch = new QLabel("Pitch");
@@ -13,10 +14,6 @@ Widget::Widget(QWidget *parent) :
     viewScale = new QTreeWidget();
     viewPitch = new QListWidget();
     //viewPitch->setResizeMode(QListView::Adjust);
-
-    // Création de la widget list
-    //viewSelectList = new QListWidget();
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // Création du QPushButton
     setScale = new QPushButton(tr("Actualiser"));
@@ -56,20 +53,19 @@ Widget::Widget(QWidget *parent) :
     vBoxLayout->addWidget(guitarView);
     vBoxLayout->addWidget(pianoView);
     vBoxLayout->addWidget(scaleSelector);
-    //vBoxLayout->addWidget(viewSelectList);
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     notes = new Notes();
+    dict = new ScaleDictionary();
 
     viewPitch->addItems(notes->listReturn());
     //viewPitch->FixedSize(50,150);
     viewPitch->setCurrentRow(0);
 
-    Dom = new Xml_Dom(":/XML/Resources/ScaleDirectory.xml");
-    viewScaleList.clear();
-    viewScaleList.append(Dom->loadedList);
-/*
-    viewSelectList->setViewMode(QListView::IconMode);
+    //Dom = new Xml_Dom(":/XML/Resources/ScaleDirectory.xml");
+    //viewScaleList.clear();
+    //viewScaleList.append(Dom->loadedList);
+
+/*    viewSelectList->setViewMode(QListView::IconMode);
     //viewSelectList->setIconSize(QSize(96, 84));
     //viewSelectList->setMovement(QListView::Static);
     viewSelectList->setMaximumWidth(800);
@@ -78,10 +74,10 @@ Widget::Widget(QWidget *parent) :
 
     viewSelectList->addItem("TEST1TEST1TEST1\ntest");
     viewSelectList->addItem("TEST2TEST2TEST2");
-    viewSelectList->addItem("TEST3TEST3TEST3");
-*/
-    loadingScale();
+    viewSelectList->addItem("TEST3TEST3TEST3");*/
 
+    //loadingScale();
+    viewScale->addTopLevelItems(dict->treeWidgetLayout());
     viewScale->setColumnCount(1);
     viewScale->headerItem()->setHidden(true);
     //viewScale->setFixedSize(250,150);
@@ -101,13 +97,10 @@ Widget::Widget(QWidget *parent) :
     connect(setScale,SIGNAL(pressed()),this,SLOT(testqdebud()));
 
     connect(setScale,SIGNAL(pressed()),this,SLOT(sendData5()));
+    connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(sendData1(QModelIndex)));
+    connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this,SLOT(sendData2(QTreeWidgetItem*,int)));
     connect(this, SIGNAL(redirectData5(QString,int)),guitarView,SLOT(updateScale(QString,int)));
     connect(this, SIGNAL(redirectData5(QString,int)),pianoView,SLOT(updateScale(QString,int)));
-
-    connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),guitarView,SLOT(updateDoubleClickPitch(QModelIndex)));
-    connect(viewPitch,SIGNAL(doubleClicked(QModelIndex)),pianoView,SLOT(updateDoubleClickPitch(QModelIndex)));
-    connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),guitarView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
-    connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),pianoView,SLOT(updateDoubleClickScale(QTreeWidgetItem*,int)));
 }
 
 void Widget::loadingScale()
@@ -134,7 +127,7 @@ void Widget::loadingScale()
 void Widget::testqdebud()
 {
     qDebug() << viewScale->currentItem()->text(0);
-    qDebug() << viewScale->currentItem()->text(1);
+    //qDebug() << viewScale->currentItem()->text(1);
 }
 
 void Widget::setGuitarView(bool view)

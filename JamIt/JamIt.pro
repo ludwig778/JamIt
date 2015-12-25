@@ -19,7 +19,8 @@ SOURCES += \
     xml_dom.cpp \
     dialogsetting2.cpp \
     scaleselectorwidget.cpp \
-    notes.cpp
+    notes.cpp \
+    scaledictionary.cpp
 
 HEADERS += \
     dialogsetting1.h \
@@ -30,7 +31,8 @@ HEADERS += \
     xml_dom.h \
     dialogsetting2.h \
     scaleselectorwidget.h \
-    notes.h
+    notes.h \
+    scaledictionary.h
 
 RESOURCES += \
     resources.qrc

@@ -108,28 +108,6 @@ void PianoGraphicView::updateScale(QString scalePattern, int pitch)
             gamme << (scalePattern.at(i)).digitValue();
         }
         repaint();
-        qDebug() << scalePattern << "test";
-    }
-}
-
-void PianoGraphicView::updateDoubleClickPitch(QModelIndex pitch)
-{
-    this->pitch = pitch.row();
-    repaint();
-}
-
-void PianoGraphicView::updateDoubleClickScale(QTreeWidgetItem* scale,int row)
-{
-    if(scale->text(1) != "")
-    {
-        gamme.clear();
-        for(int i = 0 ; i < 12; i++)
-        {
-            gamme << scale->text(1).at(i).digitValue();
-        }
-        repaint();
-        qDebug() << "test piano :" << scale << "row" << row;
-
     }
 }
 

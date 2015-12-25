@@ -3,6 +3,7 @@
 #include <QtCore>
 //#include <xml_dom.h>
 #include <QDebug>
+#include <scaledictionary.h>
 
 int main(int argc, char *argv[])
 {

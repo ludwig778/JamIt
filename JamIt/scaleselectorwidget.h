@@ -15,6 +15,7 @@ public:
     explicit ScaleSelectorWidget(QWidget *parent = 0);
     QListWidget *listWidget;
     QPushButton *addButton;
+    QPushButton *updateButton;
     QPushButton *leftSlideButton;
     QPushButton *rightSlideButton;
     QPushButton *removeButton;

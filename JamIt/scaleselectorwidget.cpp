@@ -9,6 +9,7 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
     listWidget->addItem("Item " + QString::number(3));
 
     addButton = new QPushButton(tr("Add"));
+    updateButton = new QPushButton(tr("Update"));
     leftSlideButton = new QPushButton(tr("<<"));
     rightSlideButton = new QPushButton(tr(">>"));
     removeButton = new QPushButton(tr("Remove"));
@@ -19,6 +20,7 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
     globalHBox->setMargin(0);
 
     globalVBox->addWidget(addButton);
+    globalVBox->addWidget(updateButton);
     globalVBox->addWidget(leftSlideButton);
     globalVBox->addWidget(rightSlideButton);
     globalVBox->addWidget(removeButton);

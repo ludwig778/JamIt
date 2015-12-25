@@ -103,27 +103,6 @@ Widget::Widget(QWidget *parent) :
     connect(this, SIGNAL(redirectData5(QString,int)),pianoView,SLOT(updateScale(QString,int)));
 }
 
-void Widget::loadingScale()
-{
-    for(int i = 0; i < viewScaleList.length(); i++)
-    {
-        if(viewScaleList.at(i).length() == 1)
-        {
-            itm = new QTreeWidgetItem();
-            itm->setText(0,viewScaleList.at(i).at(0));
-            itm->setText(1,"");
-        }
-        if(viewScaleList.at(i).length() > 1)
-        {
-            itm2 = new QTreeWidgetItem();
-            itm2->setText(0,viewScaleList.at(i).at(0));
-            itm2->setText(1,viewScaleList.at(i).at(1));
-            viewScale->addTopLevelItem(itm);
-            itm->addChild(itm2);
-        }
-    }
-}
-
 void Widget::testqdebud()
 {
     qDebug() << viewScale->currentItem()->text(0);

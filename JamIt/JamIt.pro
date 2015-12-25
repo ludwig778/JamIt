@@ -16,7 +16,6 @@ SOURCES += \
     mainwindow.cpp \
     pianographicview.cpp \
     widget.cpp \
-    xml_dom.cpp \
     dialogsetting2.cpp \
     scaleselectorwidget.cpp \
     notes.cpp \
@@ -28,7 +27,6 @@ HEADERS += \
     mainwindow.h \
     pianographicview.h \
     widget.h \
-    xml_dom.h \
     dialogsetting2.h \
     scaleselectorwidget.h \
     notes.h \

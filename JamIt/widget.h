@@ -4,7 +4,6 @@
 #include "guitargraphicview.h"
 #include "pianographicview.h"
 #include "scaleselectorwidget.h"
-#include "xml_dom.h"
 #include <QWidget>
 #include <QLabel>
 #include <QListView>
@@ -15,7 +14,6 @@
 #include <QPushButton>
 #include <QtXml>
 #include <QTextStream>
-#include <QDomDocument>
 #include <QtCore>
 #include <notes.h>
 #include <scaledictionary.h>
@@ -27,10 +25,8 @@ public:
     explicit Widget(QWidget *parent = 0);
     GuitarGraphicView *guitarView;
     PianoGraphicView *pianoView;
-    void loadingScale();
     ScaleSelectorWidget *scaleSelector;
 
-    Xml_Dom* Dom;
     QList<QStringList> viewScaleList;
 
     QPushButton* setScale;

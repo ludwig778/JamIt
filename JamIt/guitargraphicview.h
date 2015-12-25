@@ -3,12 +3,14 @@
 
 #include <QWidget>
 #include <QtGui>
+//#include <QString>
 #include <QPixmap>
 #include <QPainter>
 #include <QMessageBox>
 #include <QTreeWidgetItem>
 #include <QBrush>
 #include <QColor>
+#include <notes.h>
 
 class GuitarGraphicView : public QWidget
 {
@@ -26,6 +28,9 @@ public:
 protected:
     qint8 nb_string;
     void paintEvent(QPaintEvent *event);
+
+private:
+    Notes* notes;
 
 signals:
 

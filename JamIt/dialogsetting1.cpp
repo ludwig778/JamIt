@@ -30,10 +30,9 @@ DialogSetting1::DialogSetting1(QWidget *parent) :
     vBoxLayout->addWidget(spinBox);
 
     gridLayout = new QGridLayout();
-    QStringList sequence_len = QStringList()
-                                << "A"<<"A#"<<"B"<<"C"
-                                <<"C#"<<"D"<<"D#"<<"E"
-                                <<"F"<<"F#"<<"G"<<"G#";
+
+    notes = new Notes();
+
     QList<int> liste;
 
     liste << 7 << 2 << 10 << 5 << 0 << 7 << 2 << 9 << 4;
@@ -43,7 +42,7 @@ DialogSetting1::DialogSetting1(QWidget *parent) :
     {
         stringLabel = new QLabel("String #" + QString::number(i+1)+" : ");
         combo = new QComboBox();
-        combo->addItems(sequence_len);
+        combo->addItems(notes->listReturn());
         combo->setCurrentIndex(liste.at(i));
         comboList.append(combo);
         gridLayout->addWidget(stringLabel,i,0);

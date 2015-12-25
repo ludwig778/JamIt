@@ -55,10 +55,6 @@ void PianoGraphicView::paintEvent(QPaintEvent *event)
         }
     }
     int count = 3;
-    QStringList notes = QStringList()
-                                << "A"<<"A#"<<"B"<<"C"
-                                <<"C#"<<"D"<<"D#"<<"E"
-                                <<"F"<<"F#"<<"G"<<"G#";
 
     color.setRgb(255,0,0,255);
     brush.setStyle(Qt::SolidPattern);

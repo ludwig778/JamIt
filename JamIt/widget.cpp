@@ -59,11 +59,9 @@ Widget::Widget(QWidget *parent) :
     //vBoxLayout->addWidget(viewSelectList);
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    QStringList notes = QStringList()
-                                << "A"<<"A#"<<"B"<<"C"
-                                <<"C#"<<"D"<<"D#"<<"E"
-                                <<"F"<<"F#"<<"G"<<"G#";
-    viewPitch->addItems(notes);
+    notes = new Notes();
+
+    viewPitch->addItems(notes->listReturn());
     //viewPitch->FixedSize(50,150);
     viewPitch->setCurrentRow(0);
 
@@ -92,6 +90,7 @@ Widget::Widget(QWidget *parent) :
     // SELECTORSCALEWIDGET SIGNALS
     connect(scaleSelector->addButton,SIGNAL(pressed()),this,SLOT(sendData7()));
     connect(this, SIGNAL(redirectData7(QString,int)),scaleSelector,SLOT(addToSelector(QString,int)));
+    //connect(scaleSelector->updateButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->leftSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->rightSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->removeButton,SIGNAL(pressed()),,);

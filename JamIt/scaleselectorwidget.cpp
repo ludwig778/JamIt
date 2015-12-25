@@ -34,6 +34,11 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
 void ScaleSelectorWidget::addToSelector(QString string, int pitch)
 {
-    listWidget->addItem("Item " + string + pitch);
+    QStringList notes = QStringList()
+                                << "A"<<"A#"<<"B"<<"C"
+                                <<"C#"<<"D"<<"D#"<<"E"
+                                <<"F"<<"F#"<<"G"<<"G#";
+
+    listWidget->addItem("Item " + string + notes.at(pitch));
 }
 

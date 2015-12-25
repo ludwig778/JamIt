@@ -17,6 +17,7 @@
 #include <QTextStream>
 #include <QDomDocument>
 #include <QtCore>
+#include <notes.h>
 
 class Widget : public QWidget
 {
@@ -45,6 +46,9 @@ public:
 
     QTreeWidgetItem *itm;
     QTreeWidgetItem *itm2;
+
+private:
+    Notes* notes;
 
 signals:
     //void redirectData3(int pitch);

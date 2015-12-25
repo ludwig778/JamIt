@@ -94,10 +94,9 @@ void GuitarGraphicView::paintEvent(QPaintEvent *event)
     }
 
     tuning << 7 << 2 << 10 << 5 << 0 << 7;
-    QStringList notes = QStringList()
-                                << "A"<<"A#"<<"B"<<"C"
-                                <<"C#"<<"D"<<"D#"<<"E"
-                                <<"F"<<"F#"<<"G"<<"G#";
+
+    notes = new Notes();
+
     int x, y;
     for(int i = 0;i < nb_string;i++)
     {
@@ -117,8 +116,9 @@ void GuitarGraphicView::paintEvent(QPaintEvent *event)
                     x = fretList.at(j-1)-CIRCLEDIAMETER2/2+(FRETWIDTH*2)/3-(fretList.at(2)-fretList.at(1))/2;
                     p.drawEllipse(x,stringList.at(i)-CIRCLEDIAMETER2/2+2,CIRCLEDIAMETER2,CIRCLEDIAMETER2);
                 }
-                if(notes.at(((tuning.at(i)+j)%12)).length()==2) x=x-4;
-                p.drawText(x+8,y+14,notes.at((tuning.at(i)+j)%12));
+                QString varNote = notes->listReturn().at(((tuning.at(i)+j)%12));
+                if(varNote.length()==2) x=x-4;
+                p.drawText(x+8,y+14,varNote);
             }
         }
     }

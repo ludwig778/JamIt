@@ -11,6 +11,7 @@
 #include <QStringList>
 #include <QComboBox>
 #include <QList>
+#include <notes.h>
 
 class DialogSetting1 : public QDialog
 {
@@ -33,6 +34,9 @@ public:
     QComboBox* combo;
     QList<int> liste2;
     QList<QComboBox *> comboList;
+
+private:
+    Notes* notes;
 
 signals:
 

@@ -23,6 +23,7 @@ public:
     QHBoxLayout* globalHBox;
 public slots:
     void addToSelector(QString string, int pitch);
+    void updateToSelector(QString string, int pitch);
     void removeFromSelector();
 };
 

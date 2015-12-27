@@ -74,6 +74,31 @@ void ScaleSelectorWidget::addToSelector(QString string, int pitch)
     }
 }
 
+void ScaleSelectorWidget::updateToSelector(QString string, int pitch)
+{
+    QStringList notes = QStringList()
+                                << "A"<<"A#"<<"B"<<"C"
+                                <<"C#"<<"D"<<"D#"<<"E"
+                                <<"F"<<"F#"<<"G"<<"G#";
+
+    if(treeWidget->selectedItems().length() != 0)
+    {
+        if(treeWidget->topLevelItemCount() == 1)
+        {
+            if(!treeWidget->topLevelItem(0)->isHidden())
+            {
+                treeWidget->currentItem()->setText(0,notes.at(pitch));
+                treeWidget->currentItem()->setText(1,string);
+            }
+        }
+        else if(treeWidget->topLevelItemCount() > 1)
+        {
+            treeWidget->currentItem()->setText(0,notes.at(pitch));
+            treeWidget->currentItem()->setText(1,string);
+        }
+    }
+}
+
 void ScaleSelectorWidget::removeFromSelector()
 {
     if(treeWidget->topLevelItemCount() > 1)

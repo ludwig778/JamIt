@@ -86,7 +86,8 @@ Widget::Widget(QWidget *parent) :
     // SELECTORSCALEWIDGET SIGNALS
     connect(scaleSelector->addButton,SIGNAL(pressed()),this,SLOT(sendData7()));
     connect(this, SIGNAL(redirectData7(QString,int)),scaleSelector,SLOT(addToSelector(QString,int)));
-    //connect(scaleSelector->updateButton,SIGNAL(pressed()),,);
+    connect(scaleSelector->updateButton,SIGNAL(pressed()),this,SLOT(sendData9()));
+    connect(this,SIGNAL(redirectData9(QString,int)),scaleSelector,SLOT(updateToSelector(QString,int)));
     //connect(scaleSelector->leftSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->rightSlideButton,SIGNAL(pressed()),,);
     connect(scaleSelector->removeButton,SIGNAL(pressed()),scaleSelector,SLOT(removeFromSelector()));

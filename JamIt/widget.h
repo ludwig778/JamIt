@@ -52,6 +52,7 @@ signals:
     void redirectData5(QString scalePattern, int pitch);
     void redirectData7(QString string, int pitch);
     void redirectData8(QTreeWidgetItem* item,int pitch);
+    void redirectData9(QString string, int pitch);
 
 public slots:
     void testqdebud();
@@ -87,6 +88,13 @@ public slots:
         if(viewScale->currentItem()->parent())
         {
             emit redirectData7(viewScale->currentItem()->text(0),viewPitch->currentRow());
+        }
+    }
+    void sendData9()
+    {
+        if(viewScale->currentItem()->parent())
+        {
+            emit redirectData9(viewScale->currentItem()->text(0),viewPitch->currentRow());
         }
     }
 

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QtGui>
-#include <QListWidget>
+#include <QTreeWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -13,7 +13,7 @@ class ScaleSelectorWidget : public QWidget
     Q_OBJECT
 public:
     explicit ScaleSelectorWidget(QWidget *parent = 0);
-    QListWidget *listWidget;
+    QTreeWidget *treeWidget;
     QPushButton *addButton;
     QPushButton *updateButton;
     QPushButton *leftSlideButton;
@@ -23,6 +23,7 @@ public:
     QHBoxLayout* globalHBox;
 public slots:
     void addToSelector(QString string, int pitch);
+    void removeFromSelector();
 };
 
 #endif // SCALESELECTORWIDGET_H

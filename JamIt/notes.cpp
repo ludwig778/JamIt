@@ -16,3 +16,8 @@ QStringList Notes::listReturn()
     return *notes;
 }
 
+int Notes::getIndexByNote(QString note)
+{
+    return notes->indexOf(note);
+}
+

@@ -89,7 +89,10 @@ Widget::Widget(QWidget *parent) :
     //connect(scaleSelector->updateButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->leftSlideButton,SIGNAL(pressed()),,);
     //connect(scaleSelector->rightSlideButton,SIGNAL(pressed()),,);
-    //connect(scaleSelector->removeButton,SIGNAL(pressed()),,);
+    connect(scaleSelector->removeButton,SIGNAL(pressed()),scaleSelector,SLOT(removeFromSelector()));
+    //connect(scaleSelector,SIGNAL(customContextMenuRequested(QPoint)),scaleSelector->treeWidget,SLOT()
+
+    connect(scaleSelector->treeWidget,SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),this,SLOT(sendData3(QTreeWidgetItem*,QTreeWidgetItem*)));
 
     //connect(scaleSelector->listWidget,SLOT
 

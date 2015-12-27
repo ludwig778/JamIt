@@ -11,6 +11,7 @@ public:
     Notes();
     QString at(int position);
     QStringList listReturn();
+    int getIndexByNote(QString note);
 
 private:
     QStringList* notes;

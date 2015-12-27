@@ -49,9 +49,6 @@ private:
     Notes* notes;
 
 signals:
-    //void redirectData3(int pitch);
-    //void redirectData4(int pitch);
-
     void redirectData5(QString scalePattern, int pitch);
     void redirectData7(QString string, int pitch);
     void redirectData8(QTreeWidgetItem* item,int pitch);
@@ -69,10 +66,29 @@ public slots:
             emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());
         }
     }
+    void sendData3(QTreeWidgetItem*,QTreeWidgetItem*)
+    {
+        QTreeWidgetItem* item = new QTreeWidgetItem();
+        item = scaleSelector->treeWidget->currentItem();
+        emit redirectData5(dict->getScaleByName(item->text(1)),
+                           notes->getIndexByNote(item->text(0)));
+    }
 
-    void sendData5(){emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());}
+    void sendData5()
+    {
+        if(viewScale->currentItem()->parent())
+        {
+            emit redirectData5(dict->getScaleByName(viewScale->currentItem()->text(0)),viewPitch->currentRow());
+        }
+    }
 
-    void sendData7(){emit redirectData7(viewScale->currentItem()->text(0),viewPitch->currentRow());}
+    void sendData7()
+    {
+        if(viewScale->currentItem()->parent())
+        {
+            emit redirectData7(viewScale->currentItem()->text(0),viewPitch->currentRow());
+        }
+    }
 
     //void sendData8(){emit redirectData8(viewScale->currentItem()->text(0),viewPitch->currentRow());}
 

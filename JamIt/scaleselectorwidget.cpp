@@ -3,10 +3,17 @@
 ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 {
     setFixedHeight(100);
-    listWidget = new QListWidget();
-    listWidget->addItem("Item " + QString::number(1));
-    listWidget->addItem("Item " + QString::number(2));
-    listWidget->addItem("Item " + QString::number(3));
+    treeWidget = new QTreeWidget();
+    treeWidget->setHeaderHidden(true);
+    treeWidget->setColumnCount(2);
+    treeWidget->setColumnWidth(0,47);
+
+
+/*    tableWidget = new QTableWidget(0,2);
+    tableWidget->setShowGrid(false);
+    tableWidget->sethea;*/
+//    QTreeWidgetItem* t1 = new QTreeWidgetItem()
+
 
     addButton = new QPushButton(tr("Add"));
     updateButton = new QPushButton(tr("Update"));
@@ -25,7 +32,7 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
     globalVBox->addWidget(rightSlideButton);
     globalVBox->addWidget(removeButton);
 
-    globalHBox->addWidget(listWidget);
+    globalHBox->addWidget(treeWidget);
     globalHBox->addLayout(globalVBox);
 
     setLayout(globalHBox);
@@ -34,11 +41,55 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
 void ScaleSelectorWidget::addToSelector(QString string, int pitch)
 {
+
     QStringList notes = QStringList()
                                 << "A"<<"A#"<<"B"<<"C"
                                 <<"C#"<<"D"<<"D#"<<"E"
                                 <<"F"<<"F#"<<"G"<<"G#";
 
-    listWidget->addItem("Item " + string + notes.at(pitch));
+    if(treeWidget->topLevelItemCount() == 1)
+    {
+        if(treeWidget->topLevelItem(0)->isHidden())
+        {
+            treeWidget->topLevelItem(0)->setText(0,notes.at(pitch));
+            treeWidget->topLevelItem(0)->setText(1,string);
+            treeWidget->topLevelItem(0)->setHidden(false);
+        }
+        else
+        {
+            QTreeWidgetItem* t1 = new QTreeWidgetItem();
+            t1->setText(0,notes.at(pitch));
+            t1->setText(1,string);
+            t1->setTextAlignment(0, 4);
+            treeWidget->addTopLevelItem(t1);
+        }
+    }
+    else
+    {
+        QTreeWidgetItem* t1 = new QTreeWidgetItem();
+        t1->setText(0,notes.at(pitch));
+        t1->setText(1,string);
+        t1->setTextAlignment(0, 4);
+        treeWidget->addTopLevelItem(t1);
+    }
+}
+
+void ScaleSelectorWidget::removeFromSelector()
+{
+    if(treeWidget->topLevelItemCount() > 1)
+    {
+        QTreeWidgetItem* item = treeWidget->currentItem();
+        int i = treeWidget->indexOfTopLevelItem(item);
+        treeWidget->takeTopLevelItem(i);
+        delete item;
+    }
+    else if(treeWidget->topLevelItemCount() > 0)
+    {
+        treeWidget->currentItem()->setHidden(true);
+    }
+    //1treeWidget->reset();
+    //treeWidget->currentItem()->
+
+    qDebug() << treeWidget->topLevelItemCount() << treeWidget->currentIndex().row();
 }
 

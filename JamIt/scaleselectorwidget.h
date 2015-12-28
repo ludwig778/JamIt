@@ -16,8 +16,8 @@ public:
     QTreeWidget *treeWidget;
     QPushButton *addButton;
     QPushButton *updateButton;
-    QPushButton *leftSlideButton;
-    QPushButton *rightSlideButton;
+    QPushButton *beforeButton;
+    QPushButton *afterButton;
     QPushButton *removeButton;
     QVBoxLayout* globalVBox;
     QHBoxLayout* globalHBox;
@@ -25,6 +25,8 @@ public slots:
     void addToSelector(QString string, int pitch);
     void updateToSelector(QString string, int pitch);
     void removeFromSelector();
+    void putCurrentScaleBefore();
+    void putCurrentScaleAfter();
 };
 
 #endif // SCALESELECTORWIDGET_H

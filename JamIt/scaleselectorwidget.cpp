@@ -17,8 +17,8 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
     addButton = new QPushButton(tr("Add"));
     updateButton = new QPushButton(tr("Update"));
-    leftSlideButton = new QPushButton(tr("<<"));
-    rightSlideButton = new QPushButton(tr(">>"));
+    beforeButton = new QPushButton(tr("<<"));
+    afterButton = new QPushButton(tr(">>"));
     removeButton = new QPushButton(tr("Remove"));
 
     globalVBox = new QVBoxLayout();
@@ -28,8 +28,8 @@ ScaleSelectorWidget::ScaleSelectorWidget(QWidget *parent) : QWidget(parent)
 
     globalVBox->addWidget(addButton);
     globalVBox->addWidget(updateButton);
-    globalVBox->addWidget(leftSlideButton);
-    globalVBox->addWidget(rightSlideButton);
+    globalVBox->addWidget(beforeButton);
+    globalVBox->addWidget(afterButton);
     globalVBox->addWidget(removeButton);
 
     globalHBox->addWidget(treeWidget);
@@ -116,5 +116,45 @@ void ScaleSelectorWidget::removeFromSelector()
     //treeWidget->currentItem()->
 
     qDebug() << treeWidget->topLevelItemCount() << treeWidget->currentIndex().row();
+}
+
+void ScaleSelectorWidget::putCurrentScaleBefore()
+{
+    if(treeWidget->selectedItems().length() != 0)
+    {
+        int itemCount = treeWidget->topLevelItemCount();
+        if(itemCount > 1)
+        {
+            QTreeWidgetItem* item = treeWidget->currentItem();
+            int row = treeWidget->indexOfTopLevelItem(item);
+            if(row > 0)
+            {
+                treeWidget->takeTopLevelItem(row);
+                treeWidget->insertTopLevelItem(row-1,item);
+                treeWidget->setCurrentItem(item);
+            }
+            qDebug() << row;
+        }
+    }
+}
+
+void ScaleSelectorWidget::putCurrentScaleAfter()
+{
+    if(treeWidget->selectedItems().length() != 0)
+    {
+        int itemCount = treeWidget->topLevelItemCount();
+        if(itemCount > 1)
+        {
+            QTreeWidgetItem* item = treeWidget->currentItem();
+            int row = treeWidget->indexOfTopLevelItem(item);
+            if(row < itemCount-1)
+            {
+                treeWidget->takeTopLevelItem(row);
+                treeWidget->insertTopLevelItem(row+1,item);
+                treeWidget->setCurrentItem(item);
+            }
+            qDebug() << row;
+        }
+    }
 }
 

@@ -125,15 +125,13 @@ void ScaleSelectorWidget::putCurrentScaleBefore()
         int itemCount = treeWidget->topLevelItemCount();
         if(itemCount > 1)
         {
-            QTreeWidgetItem* item = treeWidget->currentItem();
-            int row = treeWidget->indexOfTopLevelItem(item);
+            int row = treeWidget->indexOfTopLevelItem(treeWidget->currentItem());
             if(row > 0)
             {
-                treeWidget->takeTopLevelItem(row);
-                treeWidget->insertTopLevelItem(row-1,item);
-                treeWidget->setCurrentItem(item);
+                QTreeWidgetItem* parent = treeWidget->currentItem()->parent();
+                QTreeWidgetItem* child = treeWidget->takeTopLevelItem(row-1);
+                treeWidget->insertTopLevelItem(row,child);
             }
-            qDebug() << row;
         }
     }
 }
@@ -145,15 +143,13 @@ void ScaleSelectorWidget::putCurrentScaleAfter()
         int itemCount = treeWidget->topLevelItemCount();
         if(itemCount > 1)
         {
-            QTreeWidgetItem* item = treeWidget->currentItem();
-            int row = treeWidget->indexOfTopLevelItem(item);
+            int row = treeWidget->indexOfTopLevelItem(treeWidget->currentItem());
             if(row < itemCount-1)
             {
-                treeWidget->takeTopLevelItem(row);
-                treeWidget->insertTopLevelItem(row+1,item);
-                treeWidget->setCurrentItem(item);
+                QTreeWidgetItem* parent = treeWidget->currentItem()->parent();
+                QTreeWidgetItem* child = treeWidget->takeTopLevelItem(row+1);
+                treeWidget->insertTopLevelItem(row,child);
             }
-            qDebug() << row;
         }
     }
 }

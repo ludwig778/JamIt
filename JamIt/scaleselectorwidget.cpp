@@ -62,6 +62,7 @@ void ScaleSelectorWidget::addToSelector(QString string, int pitch)
             t1->setText(1,string);
             t1->setTextAlignment(0, 4);
             treeWidget->addTopLevelItem(t1);
+            treeWidget->setCurrentItem(t1);
         }
     }
     else
@@ -71,6 +72,7 @@ void ScaleSelectorWidget::addToSelector(QString string, int pitch)
         t1->setText(1,string);
         t1->setTextAlignment(0, 4);
         treeWidget->addTopLevelItem(t1);
+        treeWidget->setCurrentItem(t1);
     }
 }
 
@@ -154,3 +156,15 @@ void ScaleSelectorWidget::putCurrentScaleAfter()
     }
 }
 
+void ScaleSelectorWidget::toNextScale()
+{
+    if(treeWidget->topLevelItemCount() > 1)
+    {
+        int scaleCount = treeWidget->topLevelItemCount();
+        int row = treeWidget->indexOfTopLevelItem(treeWidget->currentItem());
+        //treeWidget->setCurrentItem();
+        //treeWidget->setCurrentItem(treeWidget->);
+
+        qDebug() << row << scaleCount;
+    }
+}

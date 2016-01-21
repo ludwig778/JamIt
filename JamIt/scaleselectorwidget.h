@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QDebug>
 
 class ScaleSelectorWidget : public QWidget
 {
@@ -27,6 +28,7 @@ public slots:
     void removeFromSelector();
     void putCurrentScaleBefore();
     void putCurrentScaleAfter();
+    void toNextScale();
 };
 
 #endif // SCALESELECTORWIDGET_H

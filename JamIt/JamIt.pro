@@ -19,7 +19,8 @@ SOURCES += \
     dialogsetting2.cpp \
     scaleselectorwidget.cpp \
     notes.cpp \
-    scaledictionary.cpp
+    scaledictionary.cpp \
+    metronomewidget.cpp
 
 HEADERS += \
     dialogsetting1.h \
@@ -30,7 +31,8 @@ HEADERS += \
     dialogsetting2.h \
     scaleselectorwidget.h \
     notes.h \
-    scaledictionary.h
+    scaledictionary.h \
+    metronomewidget.h
 
 RESOURCES += \
     resources.qrc

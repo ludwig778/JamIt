@@ -26,6 +26,9 @@ Widget::Widget(QWidget *parent) :
     // Création de l'HBOX contenant les VBOX listeviews + labels
     hBoxListView = new QHBoxLayout();
 
+    // Création de l'HBOX2 contenant les VBOX scalewidgetselector et metronomeWidget
+    hBoxListView2 = new QHBoxLayout();
+
     // Gestion des layouts
     vBoxScale->addWidget(labelScale);
     vBoxScale->addWidget(viewScale);
@@ -34,6 +37,8 @@ Widget::Widget(QWidget *parent) :
 
     hBoxListView->addLayout(vBoxScale);
     hBoxListView->addLayout(vBoxPitch);
+    hBoxListView->addWidget(setScale);
+
     hBoxListView->addWidget(setScale);
 
     // Création du VBox contenant tout le layout
@@ -48,11 +53,17 @@ Widget::Widget(QWidget *parent) :
     // ScaleSelector Creation
     scaleSelector = new ScaleSelectorWidget();
 
+    // MetronomeWidget Creation
+    metronomeWidget = new MetronomeWidget();
+
+    hBoxListView2->addWidget(scaleSelector);
+    hBoxListView2->addWidget(metronomeWidget);
+
     // Ajout au VBoxLayout
     vBoxLayout->addLayout(hBoxListView);
     vBoxLayout->addWidget(guitarView);
     vBoxLayout->addWidget(pianoView);
-    vBoxLayout->addWidget(scaleSelector);
+    vBoxLayout->addLayout(hBoxListView2);
 
     notes = new Notes();
     dict = new ScaleDictionary();
@@ -105,6 +116,8 @@ Widget::Widget(QWidget *parent) :
     connect(viewScale,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this,SLOT(sendData2(QTreeWidgetItem*,int)));
     connect(this, SIGNAL(redirectData5(QString,int)),guitarView,SLOT(updateScale(QString,int)));
     connect(this, SIGNAL(redirectData5(QString,int)),pianoView,SLOT(updateScale(QString,int)));
+
+    connect(metronomeWidget,SIGNAL(endOfMeasure()),scaleSelector,SLOT(toNextScale()));
 }
 
 void Widget::testqdebud()

@@ -4,6 +4,7 @@
 #include "guitargraphicview.h"
 #include "pianographicview.h"
 #include "scaleselectorwidget.h"
+#include "metronomewidget.h"
 #include <QWidget>
 #include <QLabel>
 #include <QListView>
@@ -26,6 +27,7 @@ public:
     GuitarGraphicView *guitarView;
     PianoGraphicView *pianoView;
     ScaleSelectorWidget *scaleSelector;
+    MetronomeWidget* metronomeWidget;
 
     QList<QStringList> viewScaleList;
 
@@ -38,6 +40,7 @@ public:
     QVBoxLayout *vBoxScale;
     QVBoxLayout *vBoxPitch;
     QHBoxLayout *hBoxListView;
+    QHBoxLayout *hBoxListView2;
     QVBoxLayout *vBoxLayout;
     QList<int> tuning;
     ScaleDictionary* dict;
